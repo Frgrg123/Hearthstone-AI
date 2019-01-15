@@ -542,7 +542,12 @@ public class Hearthstone {
 		
 		float healthValues = (n.currPlayer.health - n.currEnemy.health) * 0.5f; 
 		
-		return yourMinions - enemyMinions + healthValues;
+		if(n.currEnemy.health == 0) {
+			return Float.MAX_VALUE;
+		}
+		else {
+			return yourMinions - enemyMinions + healthValues;
+		}
 	}
 	
 	//function to find all possible actions from a state by using for loop to get list of all objects not in state (which can then be added)
